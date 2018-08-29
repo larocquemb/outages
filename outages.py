@@ -8,7 +8,7 @@ from arcgis.gis import GIS
 from arcgis.features import FeatureLayerCollection
 from shapely.geometry import Polygon
 from shapely import wkb
-
+import time
 
 
 def main():
@@ -102,33 +102,7 @@ def main():
         print("field_verfiied_etr", str(field_verified_etr))
         print("subcause", str(subcause))
         print("geom", poly10)
-#        print("==================   uncasted types ===============")
-#        print("objectid", (objectid))
-#        print("outageid", (outageid))
-#        print("num_cust_nopower", (numcustnopower))
-#        print("time_of_outage", (time_of_outage1))
-#        print("etr", (etr1))
-#        print("cause", (cause))
-#        print("crew_statue", (crew_status))
-#        print("outage_type", (outage_type))
-#        print("data_last_update", (data_last_update))
-#        print("num_cust_nopowertxt", (num_cust_nopowertxt))
-#        print("area", (area))
-#        print("field_verfiied_etr", (field_verified_etr))
-#        print("subcause", (subcause))
         print("geom", (polyhex))
-#        cursor.execute("""
-#            INSERT INTO public.outages 
-#            (objectid, outageid, num_cust_nopower,time_of_outage,etr,cause,
-#            crew_status, outage_type, outage_id, data_last_update,num_cust_nopowertxt,
-#            area, field_verified_etr, subcause, geom)
-#            VALUES(%(int)s, %(int)s, %(int)s, %(datetime)s, %(datetime)s, %(str)s, %(str)s, %(str)s, 
-#               %(str)s, %(datetime)s, %(str)s, %(float)s, %(str)s, %(str)s, ST_GeomfromWKB(%(geom)s::geometry, 26914));
-#            """,
-#            {'int': iobjectid, 'int': ioutageid, 'int': inumcustnopower, 'datetime': time_of_outage1, 
-#                'datetime': etr1, 'str': cause, 'str': crew_status, 'str': outage_type, 'str': outage_id, 
-#                'datetime': data_last_update1, 'str': num_cust_nopowertxt, 
-#                'float': area, 'str': field_verified_etr, 'str': subcause, 'geom': polyhex} )
 #
         cursor.execute("""
             INSERT INTO public.outages 
@@ -147,5 +121,6 @@ def main():
     cursor.close()
  
 if __name__ == "__main__":
-	main()
+    main()
+    time.sleep(15*60)
 
